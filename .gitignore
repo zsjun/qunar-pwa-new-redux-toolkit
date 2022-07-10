@@ -1,0 +1,5 @@
+/client/node_modules
+/server/node_modules
+/需求文档
+/vite-react-ts/node_modules
+/vite-react-ts/dist
