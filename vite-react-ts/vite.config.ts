@@ -1,7 +1,7 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import path from 'path';
-import reactInlineCSSModulePlugin from 'react-inline-css-module/dist/vite-plugin';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import path from 'path'
+import reactInlineCSSModulePlugin from 'react-inline-css-module/dist/vite-plugin'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -16,7 +16,7 @@ export default defineConfig({
        * 默认：'camelCaseOnly'。
        * 'camelCase' | 'camelCaseOnly' | 'dashes' | 'dashesOnly'
        * */
-      localsConvention: 'dashesOnly',
+      localsConvention: 'camelCase',
     },
   },
   resolve: {
@@ -39,4 +39,4 @@ export default defineConfig({
     port: 3000,
     host: '0.0.0.0',
   },
-});
+})

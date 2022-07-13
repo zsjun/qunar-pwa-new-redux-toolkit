@@ -1,12 +1,12 @@
-import React from 'react';
-import classnames from 'classnames';
-import './index.style.scss';
+import React from 'react'
+import classnames from 'classnames'
+import './index.module.scss'
 interface HighSpeedProps {
-  highSpeed: string;
-  toggle: () => void;
+  highSpeed: string
+  toggle: () => void
 }
 export default function HighSpeed(props: HighSpeedProps) {
-  const { highSpeed, toggle } = props;
+  const { highSpeed, toggle } = props
 
   return (
     <div className="high-speed">
@@ -26,5 +26,5 @@ export default function HighSpeed(props: HighSpeedProps) {
         </div>
       </div>
     </div>
-  );
+  )
 }

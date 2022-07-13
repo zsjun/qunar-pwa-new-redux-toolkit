@@ -1,22 +1,21 @@
-import Index from "../pages/index";
-import About from "../pages/about";
-import Login from "../components/login";
+import Index from '../pages/index'
+import About from '../pages/about'
+import Login from '../components/login'
 const routes = [
   {
-    path: "/",
-
+    path: '/',
     component: Index,
   },
   {
-    path: "/about",
+    path: '/about',
     exact: true,
     component: About,
   },
   {
-    path: "/login",
+    path: '/login',
     exact: true,
     component: Login,
   },
-];
+]
 
-export default routes;
+export default routes
