@@ -1,10 +1,13 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
-import px2vw from '@yuo/postcss-px2vw';
+import reactInlineCSSModulePlugin from 'react-inline-css-module/dist/vite-plugin';
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    reactInlineCSSModulePlugin({ reactVariableName: 'React' }),
+  ],
   css: {
     // css模块化，文件以.module.[css|less|scss]结尾，否则不生效的
     modules: {

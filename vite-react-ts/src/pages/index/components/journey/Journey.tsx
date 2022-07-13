@@ -1,8 +1,15 @@
 import React from 'react';
-import switchImg from './imgs/switch.svg';
-import './Journey.css';
+import switchImg from './switch.svg';
+import './index.style.scss';
 
-export default function Journey(props) {
+interface JourneyProps {
+  from: string;
+  to: string;
+  exchangeFromTo: () => void;
+  showCitySelector: (flag: boolean) => void;
+}
+
+export default function Journey(props: JourneyProps) {
   const { from, to, exchangeFromTo, showCitySelector } = props;
 
   return (

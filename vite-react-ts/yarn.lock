@@ -400,6 +400,11 @@
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.5.tgz#5f19d2b85a98e9558036f6a3cacc8819420f05cf"
   integrity sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==
 
+"@types/react-css-modules@^4.6.4":
+  version "4.6.4"
+  resolved "https://registry.yarnpkg.com/@types/react-css-modules/-/react-css-modules-4.6.4.tgz#ddff040d6d11e81a9a875f30c359fc934ceeb9ce"
+  integrity sha512-+ceSNlaDcuNR44xyceOrKybdRMDc3kogJw2Hgal3sKPYv3jZPs7NsTThCJd+6ti5cjBNl/UPPYPkf8MevuxCqQ==
+
 "@types/react-dom@^18.0.0":
   version "18.0.5"
   resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-18.0.5.tgz#330b2d472c22f796e5531446939eacef8378444a"
@@ -1118,6 +1123,11 @@ react-dom@^18.0.0:
   dependencies:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
+
+react-inline-css-module@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/react-inline-css-module/-/react-inline-css-module-0.5.0.tgz#8b525fb8e6ffe2aee7c2af1202cb752d5ccb1d76"
+  integrity sha512-r1V7MRxgrnFFt7Lbeolm/RNfplflQ8gZbJFvJfhNDMZYX/VRNuU6mjIPZYBkYfqFGByR81GiiyWZVrKo20U7yw==
 
 react-is@^16.12.0, react-is@^16.7.0:
   version "16.13.1"

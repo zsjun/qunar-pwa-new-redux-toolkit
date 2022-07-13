@@ -1,11 +1,15 @@
 import React, { useEffect, memo } from 'react';
 import { Button } from 'antd-mobile';
 import { useNavigate } from 'react-router-dom';
-import Header from '@/common/Header';
-import CitySelector from '@/common/CitySelector';
-import DateSelector from '@/common/DateSelector';
+import Header from '@/common/header/Header';
+// import CitySelector from '@/common/CitySelector';
+// import DateSelector from '@/common/DateSelector';
+import DepartDate from './components/departDate/DepartDate';
+import HighSpeed from './components/highSpeed/HighSpeed';
+import Journey from './components/journey/Journey';
+import Submit from './components/submit/Submit';
 import k from './index.module.scss';
-import { login } from './api';
+import { login } from './indexApi';
 
 function Index() {
   let navigate = useNavigate();
@@ -23,8 +27,12 @@ function Index() {
       <div className="header-wrapper">
         <Header title="火车票" onBack={back} />
       </div>
-      kaimo 的 index 页面
-      <h3>sdsds</h3>
+      <form action="./query.html" styleName="form">
+        <Journey from={from} to={to} {...cbs} />
+        <DepartDate time={departDate} {...departDateCbs} />
+        <HighSpeed highSpeed={highSpeed} {...highSpeedCbs} />
+        <Submit />
+      </form>
       {/* <CitySelector
         show={isCitySelectorVisible}
         cityData={cityData}

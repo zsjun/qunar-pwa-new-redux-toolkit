@@ -1,9 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import './HighSpeed.css';
-
-export default function HighSpeed(props) {
+import './index.style.scss';
+interface HighSpeedProps {
+  highSpeed: string;
+  toggle: () => void;
+}
+export default function HighSpeed(props: HighSpeedProps) {
   const { highSpeed, toggle } = props;
 
   return (
@@ -26,8 +28,3 @@ export default function HighSpeed(props) {
     </div>
   );
 }
-
-HighSpeed.propTypes = {
-  highSpeed: PropTypes.bool.isRequired,
-  toggle: PropTypes.func.isRequired,
-};

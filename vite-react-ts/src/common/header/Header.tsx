@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './Header.css';
+import './index.module.scss';
 interface myProps {
   onBack: () => void;
   title: string;
@@ -8,7 +8,7 @@ interface myProps {
 export default function Header(props: myProps) {
   const { onBack, title } = props;
   return (
-    <div className="header">
+    <div styleName="header">
       {/* <div className="header-back" onClick={onBack}>
         <svg width="42" height="42">
           <polyline
@@ -19,7 +19,12 @@ export default function Header(props: myProps) {
           />
         </svg>
       </div> */}
-      <h1 className="header-title">{title}</h1>
+      <div className="fn24" styleName="title">
+        火车票预订
+      </div>
+      <div className="fn14" styleName="info">
+        便捷购票，服务您的每一次出行
+      </div>
     </div>
   );
 }

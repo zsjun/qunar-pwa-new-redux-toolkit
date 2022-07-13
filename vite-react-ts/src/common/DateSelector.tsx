@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import classnames from 'classnames';
 
 import { h0 } from './fp';
-import Header from './Header';
+import Header from './header/Header';
 
 import './DateSelector.css';
 
