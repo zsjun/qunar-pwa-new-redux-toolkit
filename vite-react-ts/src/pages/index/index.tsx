@@ -1,17 +1,17 @@
 import React, { useEffect, memo } from 'react'
 import { Button } from 'antd-mobile'
-import { useHistory } from 'react-router-dom'
-import Header from '../../common/Header'
-import CitySelector from '../../common/CitySelector'
-import DateSelector from '../../common/DateSelector'
+import { useNavigate } from 'react-router-dom'
+import Header from '@/common/Header'
+import CitySelector from '@/common/CitySelector'
+import DateSelector from '@/common/DateSelector'
 import k from './index.module.scss'
 import { login } from './api'
 
-const back = () => {
-  history.back()
-}
 function Index() {
-  console.log(11, k)
+  let navigate = useNavigate()
+  const back = () => {
+    navigate(-1)
+  }
   useEffect(() => {
     login({
       username: 'zsj',
@@ -25,17 +25,17 @@ function Index() {
       </div>
       kaimo 的 index 页面
       <h3>sdsds</h3>
-      <CitySelector
+      {/* <CitySelector
         show={isCitySelectorVisible}
         cityData={cityData}
         isLoading={isLoadingCityData}
         {...citySelectorCbs}
-      />
-      <DateSelector
+      /> */}
+      {/* <DateSelector
         show={isDateSelectorVisible}
         {...dateSelectorCbs}
         onSelect={onSelectDate}
-      />
+      /> */}
       <div className={k.wrapBox}></div>
       <Button color="primary" fill="solid">
         11222
