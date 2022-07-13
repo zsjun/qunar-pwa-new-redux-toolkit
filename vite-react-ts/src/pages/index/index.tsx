@@ -1,23 +1,23 @@
-import React, { useEffect, memo } from 'react';
-import { Button } from 'antd-mobile';
-import { useHistory } from 'react-router-dom';
-import Header from '../../common/Header';
-import CitySelector from '../../common/CitySelector';
-import DateSelector from '../../common/DateSelector';
-import k from './index.module.scss';
-import { login } from './api';
+import React, { useEffect, memo } from 'react'
+import { Button } from 'antd-mobile'
+import { useHistory } from 'react-router-dom'
+import Header from '../../common/Header'
+import CitySelector from '../../common/CitySelector'
+import DateSelector from '../../common/DateSelector'
+import k from './index.module.scss'
+import { login } from './api'
 
 const back = () => {
-  history.back();
-};
+  history.back()
+}
 function Index() {
-  console.log(11, k);
+  console.log(11, k)
   useEffect(() => {
     login({
       username: 'zsj',
       password: 'zsj',
-    });
-  }, []);
+    })
+  }, [])
   return (
     <div className={k.kaimoIndex}>
       <div className="header-wrapper">
@@ -41,7 +41,7 @@ function Index() {
         11222
       </Button>
     </div>
-  );
+  )
 }
 
-export default memo(Index);
+export default memo(Index)
