@@ -1,18 +1,18 @@
-import React, { useCallback, useMemo } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import './App.css';
+import React, { useCallback, useMemo } from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import './App.css'
 
-import Header from '../common/Header.jsx';
-import DepartDate from './DepartDate.jsx';
-import HighSpeed from './HighSpeed.jsx';
-import Journey from './Journey.jsx';
-import Submit from './Submit.jsx';
+import Header from '../common/Header.jsx'
+import DepartDate from './DepartDate.jsx'
+import HighSpeed from './HighSpeed.jsx'
+import Journey from './Journey.jsx'
+import Submit from './Submit.jsx'
 
-import CitySelector from '../common/CitySelector.jsx';
-import DateSelector from '../common/DateSelector.jsx';
+import CitySelector from '../common/CitySelector.jsx'
+import DateSelector from '../common/DateSelector.jsx'
 
-import { h0 } from '../common/fp';
+import { h0 } from '../common/fp'
 
 import {
   exchangeFromTo,
@@ -24,7 +24,7 @@ import {
   hideDateSelector,
   setDepartDate,
   toggleHighSpeed,
-} from './actions';
+} from './actions'
 
 function App(props) {
   const {
@@ -37,11 +37,11 @@ function App(props) {
     highSpeed,
     dispatch,
     departDate,
-  } = props;
+  } = props
 
   const onBack = useCallback(() => {
-    window.history.back();
-  }, []);
+    window.history.back()
+  }, [])
 
   const cbs = useMemo(() => {
     return bindActionCreators(
@@ -50,8 +50,8 @@ function App(props) {
         showCitySelector,
       },
       dispatch
-    );
-  }, []);
+    )
+  }, [])
 
   const citySelectorCbs = useMemo(() => {
     return bindActionCreators(
@@ -61,8 +61,8 @@ function App(props) {
         onSelect: setSelectedCity,
       },
       dispatch
-    );
-  }, []);
+    )
+  }, [])
 
   const departDateCbs = useMemo(() => {
     return bindActionCreators(
@@ -70,8 +70,8 @@ function App(props) {
         onClick: showDateSelector,
       },
       dispatch
-    );
-  }, []);
+    )
+  }, [])
 
   const dateSelectorCbs = useMemo(() => {
     return bindActionCreators(
@@ -79,8 +79,8 @@ function App(props) {
         onBack: hideDateSelector,
       },
       dispatch
-    );
-  }, []);
+    )
+  }, [])
 
   const highSpeedCbs = useMemo(() => {
     return bindActionCreators(
@@ -88,21 +88,21 @@ function App(props) {
         toggle: toggleHighSpeed,
       },
       dispatch
-    );
-  }, []);
+    )
+  }, [])
 
   const onSelectDate = useCallback((day) => {
     if (!day) {
-      return;
+      return
     }
 
     if (day < h0()) {
-      return;
+      return
     }
 
-    dispatch(setDepartDate(day));
-    dispatch(hideDateSelector());
-  }, []);
+    dispatch(setDepartDate(day))
+    dispatch(hideDateSelector())
+  }, [])
 
   return (
     <div>
@@ -127,14 +127,14 @@ function App(props) {
         onSelect={onSelectDate}
       />
     </div>
-  );
+  )
 }
 
 export default connect(
   function mapStateToProps(state) {
-    return state;
+    return state
   },
   function mapDispatchToProps(dispatch) {
-    return { dispatch };
+    return { dispatch }
   }
-)(App);
+)(App)

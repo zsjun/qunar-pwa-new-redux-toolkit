@@ -1,4 +1,4 @@
-import React, { useEffect, memo, useReducer } from 'react'
+import React, { useEffect, memo, useReducer, useState } from 'react'
 import { Button } from 'antd-mobile'
 import { useNavigate } from 'react-router-dom'
 import Header from '@/common/header/Header'
@@ -8,7 +8,7 @@ import DepartDate from './components/departDate/DepartDate'
 import HighSpeed from './components/highSpeed/HighSpeed'
 import Journey from './components/journey/Journey'
 import Submit from './components/submit/Submit'
-import { login } from './indexApi'
+// import { login } from './indexApi'
 import { journeyInitState, journeyReducer } from './reducer'
 import './index.module.scss'
 
@@ -18,12 +18,13 @@ function Index() {
     navigate(-1)
   }
   const [journeyState, dispatch] = useReducer(journeyReducer, journeyInitState)
-  // useEffect(() => {
-  //   login({
-  //     username: 'zsj',
-  //     password: 'zsj',
-  //   })
-  // }, [])
+  const [showCitySelector, setShowCitySelector] = useState(false)
+  const [departDate, setDepartDate] = useState(Date.now())
+  const handleExChange = () => {
+    dispatch({
+      type: 'exChange',
+    })
+  }
   return (
     <div styleName="index-box">
       <div styleName="header-box">
@@ -32,9 +33,10 @@ function Index() {
           <Journey
             from={journeyState.from}
             to={journeyState.to}
-            exchangeFromTo={console.log}
-            showCitySelector={console.log}
+            exchangeFromTo={handleExChange}
+            showCitySelector={setShowCitySelector}
           />
+          <DepartDate time={departDate} onClick={setDepartDate} />
           {/* <DepartDate time={departDate} {...departDateCbs} />
         <HighSpeed highSpeed={highSpeed} {...highSpeedCbs} /> */}
           <Submit />

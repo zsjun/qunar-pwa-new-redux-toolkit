@@ -2,9 +2,10 @@ import React, { useMemo } from 'react'
 import { h0 } from '@/common/fp'
 import dayjs from 'dayjs'
 import './index.module.scss'
+
 interface DepartDateProps {
   time: number
-  onClick: () => void
+  onClick: (data: any) => void
 }
 export default function DepartDate(props: DepartDateProps) {
   const { time, onClick } = props
@@ -24,9 +25,9 @@ export default function DepartDate(props: DepartDateProps) {
     (isToday ? '(今天)' : '')
 
   return (
-    <div className="depart-date" onClick={onClick}>
+    <div styleName="depart-date" onClick={onClick}>
       <input type="hidden" name="date" value={departDateString} />
-      {departDateString} <span className="depart-week">{weekString}</span>
+      {departDateString} <span styleName="depart-week">{weekString}</span>
     </div>
   )
 }
