@@ -1,95 +1,95 @@
-import React, { FC } from 'react';
-import classnames from 'classnames';
+import React, { FC } from 'react'
+import classnames from 'classnames'
 
-import { h0 } from './fp';
-import Header from './header/Header';
+import { h0 } from './fp'
+import Header from './header/Header'
 
-import './DateSelector.css';
+import './index.module.scss'
 
 interface DayProps {
-  day: number;
-  onSelect: () => void;
+  day: number
+  onSelect: (day: any) => void
 }
 const Day: FC<DayProps> = (props: DayProps) => {
-  const { day, onSelect } = props;
+  const { day, onSelect } = props
 
   if (!day) {
-    return <td className="null"></td>;
+    return <td styleName="null"></td>
   }
 
-  const classes = [];
+  const classes = []
 
-  const now = h0();
+  const now = h0()
 
   if (day < now) {
-    classes.push('disabled');
+    classes.push('disabled')
   }
 
   if ([6, 0].includes(new Date(day).getDay())) {
-    classes.push('weekend');
+    classes.push('weekend')
   }
 
-  const dateString = now === day ? '今天' : new Date(day).getDate();
+  const dateString = now === day ? '今天' : new Date(day).getDate()
 
   return (
-    <td className={classnames(classes)} onClick={() => onSelect(day)}>
+    <td styleName={classes.join(',')} onClick={() => onSelect(day)}>
       {dateString}
     </td>
-  );
-};
+  )
+}
 
 interface WeekProps {
-  days: number[];
-  onSelect: () => void;
+  days: number[]
+  onSelect: (day: any) => void
 }
 
 const Week: FC<WeekProps> = function Week(props: WeekProps) {
-  const { days, onSelect } = props;
+  const { days, onSelect } = props
 
   return (
-    <tr className="date-table-days">
+    <tr styleName="date-table-days">
       {days.map((day, idx) => {
-        return <Day key={idx} day={day} onSelect={onSelect} />;
+        return <Day key={idx} day={day} onSelect={onSelect} />
       })}
     </tr>
-  );
-};
+  )
+}
 interface MonthProps {
-  startingTimeInMonth: number;
-  onSelect: () => void;
+  startingTimeInMonth: number
+  onSelect: (day: any) => void
 }
 const Month: FC<MonthProps> = (props: MonthProps) => {
-  const { startingTimeInMonth, onSelect } = props;
+  const { startingTimeInMonth, onSelect } = props
 
-  const startDay = new Date(startingTimeInMonth);
-  const currentDay = new Date(startingTimeInMonth);
+  const startDay = new Date(startingTimeInMonth)
+  const currentDay = new Date(startingTimeInMonth)
 
-  let days = [];
+  let days = []
 
   while (currentDay.getMonth() === startDay.getMonth()) {
-    days.push(currentDay.getTime());
-    currentDay.setDate(currentDay.getDate() + 1);
+    days.push(currentDay.getTime())
+    currentDay.setDate(currentDay.getDate() + 1)
   }
 
   days = new Array(startDay.getDay() ? startDay.getDay() - 1 : 6)
     .fill(null)
-    .concat(days);
+    .concat(days)
 
-  const lastDay = new Date(days[days.length - 1]);
+  const lastDay = new Date(days[days.length - 1])
 
   days = days.concat(
     new Array(lastDay.getDay() ? 7 - lastDay.getDay() : 0).fill(null)
-  );
+  )
 
-  const weeks = [];
+  const weeks = []
 
   for (let row = 0; row < days.length / 7; ++row) {
-    const week = days.slice(row * 7, (row + 1) * 7);
-    weeks.push(week);
+    const week = days.slice(row * 7, (row + 1) * 7)
+    weeks.push(week)
   }
-
+  console.log(33, startDay.getFullYear())
   return (
-    <table className="date-table">
+    <table styleName="date-table">
       <thead>
         <tr>
           <td colSpan={7}>
@@ -100,51 +100,51 @@ const Month: FC<MonthProps> = (props: MonthProps) => {
         </tr>
       </thead>
       <tbody>
-        <tr className="data-table-weeks">
+        <tr styleName="data-table-weeks">
           <th>周一</th>
           <th>周二</th>
           <th>周三</th>
           <th>周四</th>
           <th>周五</th>
-          <th className="weekend">周六</th>
-          <th className="weekend">周日</th>
+          <th styleName="weekend">周六</th>
+          <th styleName="weekend">周日</th>
         </tr>
         {weeks.map((week, idx) => {
-          return <Week key={idx} days={week} onSelect={onSelect} />;
+          return <Week key={idx} days={week} onSelect={onSelect} />
         })}
       </tbody>
     </table>
-  );
-};
+  )
+}
 
 interface DateSelectorProps {
-  show: boolean;
-  onSelect: () => void;
-  onBack: () => void;
+  show: boolean
+  onSelect: (day: any) => void
+  onBack: () => void
 }
 
 export default function DateSelector(props: DateSelectorProps) {
-  const { show, onSelect, onBack } = props;
+  const { show, onSelect, onBack } = props
 
-  const now = new Date();
-  now.setHours(0);
-  now.setMinutes(0);
-  now.setSeconds(0);
-  now.setMilliseconds(0);
-  now.setDate(1);
+  const now = new Date()
+  now.setHours(0)
+  now.setMinutes(0)
+  now.setSeconds(0)
+  now.setMilliseconds(0)
+  now.setDate(1)
 
-  const monthSequence = [now.getTime()];
+  const monthSequence = [now.getTime()]
 
-  now.setMonth(now.getMonth() + 1);
-  monthSequence.push(now.getTime());
+  now.setMonth(now.getMonth() + 1)
+  monthSequence.push(now.getTime())
 
-  now.setMonth(now.getMonth() + 1);
-  monthSequence.push(now.getTime());
-
+  now.setMonth(now.getMonth() + 1)
+  monthSequence.push(now.getTime())
+  console.log(11, monthSequence)
   return (
-    <div className={classnames('date-selector', { hidden: !show })}>
-      <Header title="日期选择" onBack={onBack} />
-      <div className="date-selector-tables">
+    <div styleName={classnames('date-selector', { hidden: !show })}>
+      {/* <Header title="日期选择" onBack={onBack} /> */}
+      <div styleName="date-selector-tables">
         {monthSequence.map((month) => {
           return (
             <Month
@@ -152,9 +152,9 @@ export default function DateSelector(props: DateSelectorProps) {
               onSelect={onSelect}
               startingTimeInMonth={month}
             />
-          );
+          )
         })}
       </div>
     </div>
-  );
+  )
 }

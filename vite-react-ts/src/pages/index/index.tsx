@@ -1,9 +1,16 @@
-import React, { useEffect, memo, useReducer, useState } from 'react'
+import React, {
+  useEffect,
+  memo,
+  useReducer,
+  useState,
+  useCallback,
+} from 'react'
 import { Button } from 'antd-mobile'
 import { useNavigate } from 'react-router-dom'
 import Header from '@/common/header/Header'
+import { h0 } from '@/common/fp'
 // import CitySelector from '@/common/CitySelector';
-// import DateSelector from '@/common/DateSelector';
+import DateSelector from '@/common/DateSelector'
 import DepartDate from './components/departDate/DepartDate'
 import HighSpeed from './components/highSpeed/HighSpeed'
 import Journey from './components/journey/Journey'
@@ -20,11 +27,23 @@ function Index() {
   const [journeyState, dispatch] = useReducer(journeyReducer, journeyInitState)
   const [showCitySelector, setShowCitySelector] = useState(false)
   const [departDate, setDepartDate] = useState(Date.now())
+  const [isDateSelectorVisible, setIsDateSelectorVisible] = useState(false)
   const handleExChange = () => {
     dispatch({
       type: 'exChange',
     })
   }
+  const onSelectDate = useCallback((day: any) => {
+    if (!day) {
+      return
+    }
+
+    if (day < h0()) {
+      return
+    }
+    setDepartDate(day)
+    setIsDateSelectorVisible(false)
+  }, [])
   return (
     <div styleName="index-box">
       <div styleName="header-box">
@@ -36,7 +55,7 @@ function Index() {
             exchangeFromTo={handleExChange}
             showCitySelector={setShowCitySelector}
           />
-          <DepartDate time={departDate} onClick={setDepartDate} />
+          <DepartDate time={departDate} onClick={setIsDateSelectorVisible} />
           {/* <DepartDate time={departDate} {...departDateCbs} />
         <HighSpeed highSpeed={highSpeed} {...highSpeedCbs} /> */}
           <Submit />
@@ -51,8 +70,8 @@ function Index() {
       /> */}
       {/* <DateSelector
         show={isDateSelectorVisible}
-        {...dateSelectorCbs}
         onSelect={onSelectDate}
+        onBack={console.log}
       /> */}
       {/* <div className={k.wrapBox}></div> */}
       {/* <Button color="primary" fill="solid">
