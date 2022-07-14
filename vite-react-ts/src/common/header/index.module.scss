@@ -25,6 +25,9 @@
   display: flex;
   align-items: center;
   padding-left: 18px;
+  position: fixed;
+  left: 0;
+  top: 0;
   .arrow {
     width: 10px;
     height: 10px;

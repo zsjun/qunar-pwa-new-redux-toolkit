@@ -20,18 +20,19 @@ import { journeyInitState, journeyReducer } from './reducer';
 import './index.module.scss';
 
 function Index() {
-  let navigate = useNavigate();
-  const back = () => {
-    setIsDateSelectorVisible(false);
-  };
   const [journeyState, dispatch] = useReducer(journeyReducer, journeyInitState);
   const [showCitySelector, setShowCitySelector] = useState(false);
   const [departDate, setDepartDate] = useState(Date.now());
   const [isDateSelectorVisible, setIsDateSelectorVisible] = useState(false);
+  const [highSpeed, setHighSpeed] = useState(false);
   const handleExChange = () => {
     dispatch({
       type: 'exChange',
     });
+  };
+
+  const back = () => {
+    setIsDateSelectorVisible(false);
   };
   const onSelectDate = useCallback((day: any) => {
     if (!day) {
@@ -44,6 +45,13 @@ function Index() {
     setDepartDate(day);
     setIsDateSelectorVisible(false);
   }, []);
+
+  let navigate = useNavigate();
+  const goQuery = () => {
+    navigate(
+      `/query?from=${journeyState.from}&to=${journeyState.to}&highSpeed=${highSpeed}&date=${departDate}`
+    );
+  };
   return (
     <div styleName="index-box">
       <div styleName="header-box">
@@ -56,9 +64,10 @@ function Index() {
             showCitySelector={setShowCitySelector}
           />
           <DepartDate time={departDate} onClick={setIsDateSelectorVisible} />
+          <HighSpeed highSpeed={highSpeed} toggle={setHighSpeed} />
           {/* <DepartDate time={departDate} {...departDateCbs} />
         <HighSpeed highSpeed={highSpeed} {...highSpeedCbs} /> */}
-          <Submit />
+          <Submit handleClick={goQuery} />
         </div>
       </div>
 
