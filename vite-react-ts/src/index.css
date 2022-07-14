@@ -29,7 +29,9 @@ body {
 .bold {
   font-weight: 700;
 }
-
+.fn20 {
+  font-size: 20px;
+}
 /* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

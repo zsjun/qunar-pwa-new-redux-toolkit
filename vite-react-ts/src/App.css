@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -39,4 +39,10 @@
 
 button {
   font-size: calc(10px + 2vmin);
+} */
+#root {
+  height: 100%;
+  font-size: 100px;
+  font-size: 12px;
+  font-size: 14px;
 }
