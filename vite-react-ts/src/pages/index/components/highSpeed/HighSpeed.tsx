@@ -1,30 +1,30 @@
-import React from 'react'
-import classnames from 'classnames'
-import './index.module.scss'
+import React from 'react';
+import classnames from 'classnames';
+import './index.module.scss';
 interface HighSpeedProps {
-  highSpeed: string
-  toggle: () => void
+  highSpeed: boolean;
+  toggle: (val: boolean) => void;
 }
 export default function HighSpeed(props: HighSpeedProps) {
-  const { highSpeed, toggle } = props
+  const { highSpeed, toggle } = props;
 
   return (
-    <div className="high-speed">
-      <div className="high-speed-label">只看高铁/动车</div>
-      <div className="high-speed-switch" onClick={() => toggle()}>
-        <input type="hidden" name="highSpeed" value={highSpeed} />
+    <div styleName="high-speed">
+      <div styleName="high-speed-label">只看高铁/动车</div>
+      <div styleName="high-speed-switch" onClick={() => toggle(!highSpeed)}>
+        {/* <input type="hidden" name="highSpeed" value={highSpeed} /> */}
         <div
-          className={classnames('high-speed-track', {
-            checked: highSpeed,
-          })}
+          styleName={
+            highSpeed ? 'high-speed-track' : 'high-speed-track checked'
+          }
         >
           <span
-            className={classnames('high-speed-handle', {
-              checked: highSpeed,
-            })}
+            styleName={
+              highSpeed ? 'high-speed-handle' : 'high-speed-handle checked'
+            }
           ></span>
         </div>
       </div>
     </div>
-  )
+  );
 }
