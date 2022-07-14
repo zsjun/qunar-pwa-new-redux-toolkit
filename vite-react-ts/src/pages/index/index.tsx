@@ -8,9 +8,9 @@ import React, {
 import { Button } from 'antd-mobile';
 import { useNavigate } from 'react-router-dom';
 import Header from '@/common/header/Header';
-import { h0 } from '@/common/fp';
+import { h0 } from '@/utils/fp';
 // import CitySelector from '@/common/CitySelector';
-import DateSelector from '@/common/DateSelector';
+import DateSelector from '@/common/dateSelector/DateSelector';
 import DepartDate from './components/departDate/DepartDate';
 import HighSpeed from './components/highSpeed/HighSpeed';
 import Journey from './components/journey/Journey';

@@ -1,13 +1,12 @@
 import { useState, useCallback, useEffect, useMemo, memo, FC } from 'react';
 import classnames from 'classnames';
-import './CitySelector.css';
+import './index.module.scss';
 interface CityProps {
   name: string;
-  onSelect: () => void;
+  onSelect: (name: string) => void;
 }
 const CityItem: FC<CityProps> = memo(function CityItem(props) {
   const { name, onSelect } = props;
-
   return (
     <li className="city-li" onClick={() => onSelect(name)}>
       {name}

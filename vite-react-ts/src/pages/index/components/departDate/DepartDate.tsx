@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react'
-import { h0 } from '@/common/fp'
+import { h0 } from '@/utils/fp'
 import dayjs from 'dayjs'
 import './index.module.scss'
 
