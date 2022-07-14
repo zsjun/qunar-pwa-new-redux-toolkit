@@ -19,9 +19,13 @@ body {
 .fn24 {
   font-size: 24px;
 }
+.fn18 {
+  font-size: 18px;
+}
 .fn14 {
   font-size: 14px;
 }
+
 .bold {
   font-weight: 700;
 }

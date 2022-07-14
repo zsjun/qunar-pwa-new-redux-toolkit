@@ -6,6 +6,9 @@
   min-height: 100%;
   margin-bottom: 70px;
   z-index: 1000;
+  &.hidden {
+    visibility: hidden;
+  }
 }
 
 .date-selector-tables {
