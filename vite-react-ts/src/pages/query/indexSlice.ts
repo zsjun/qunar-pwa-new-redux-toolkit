@@ -1,10 +1,11 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState, AppThunk } from '../../app/store';
 import { fetchQuery } from './indexApi';
+import { ListItemProps } from './types';
 
 export interface QueryState {
   data: {
-    trains: string[];
+    trains: ListItemProps[];
     ticketType: string;
     trainType: string;
     depStation: string;
