@@ -1,10 +1,10 @@
-import * as React from 'react'
+import * as React from 'react';
 // react-router-v6
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 // import logo from "./logo.svg";
-import routes from './router/index'
+import routes from './router/index';
 
-import './App.css'
+import './App.css';
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
         ))}
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;
