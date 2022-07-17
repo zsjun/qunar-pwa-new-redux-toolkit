@@ -1,4 +1,11 @@
-import React, { memo, useState, useMemo, useRef, useEffect, MouseEvent } from 'react';
+import React, {
+  memo,
+  useState,
+  useMemo,
+  useRef,
+  useEffect,
+  MouseEvent,
+} from 'react';
 import PropTypes from 'prop-types';
 // import leftPad from 'left-pad';
 import useWinSize from '@/utils/hooks/useWinSize';
@@ -7,8 +14,8 @@ interface SliderProps {
   title: string;
   currentStartHours: number;
   currentEndHours: number;
-  onStartChanged: (value:any) => void;
-  onEndChanged: (value:any) => void;
+  onStartChanged: (value: any) => void;
+  onEndChanged: (value: any) => void;
 }
 const Slider = memo(function Slider(props: SliderProps) {
   const {
@@ -33,7 +40,7 @@ const Slider = memo(function Slider(props: SliderProps) {
   const prevCurrentStartHours = useRef(currentStartHours);
   const prevCurrentEndHours = useRef(currentEndHours);
 
-  const [start, setStart] = useState(() => (currentStartHours / 24 * 100);
+  const [start, setStart] = useState(() => (currentStartHours / 24) * 100);
   const [end, setEnd] = useState(() => (currentEndHours / 24) * 100);
 
   if (prevCurrentStartHours.current !== currentStartHours) {
