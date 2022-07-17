@@ -1,9 +1,19 @@
-<<<<<<< HEAD
-=======
-#root {
+.root-wrap {
   height: 100%;
+  min-width: 320px;
+  max-width: 640px;
+  overflow: hidden;
+  /* 适配刘海屏,等于ios的安全高度 */
+  padding-top: 20px;
+  padding-top: env(safe-area-inset-top);
+  padding-top: constant(safe-area-inset-top);
+  padding-bottom: 0;
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
 }
->>>>>>> 9aa2b00a5746d59fbea9a8fd197fda7e52c09c5f
+* {
+  box-sizing: border-box;
+}
 /* .App {
   text-align: center;
 }
@@ -46,12 +56,3 @@
 button {
   font-size: calc(10px + 2vmin);
 } */
-<<<<<<< HEAD
-#root {
-  height: 100%;
-  font-size: 100px;
-  font-size: 12px;
-  font-size: 14px;
-}
-=======
->>>>>>> 9aa2b00a5746d59fbea9a8fd197fda7e52c09c5f

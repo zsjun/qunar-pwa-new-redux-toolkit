@@ -46,7 +46,7 @@ function Index() {
     setIsDateSelectorVisible(false);
   }, []);
 
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const goQuery = () => {
     navigate(
       `/query?from=${journeyState.from}&to=${journeyState.to}&highSpeed=${highSpeed}&date=${departDate}`
@@ -54,21 +54,19 @@ function Index() {
   };
   return (
     <div styleName="index-box">
-      <div styleName="header-box">
-        <Header title="火车票" />
-        <div styleName="form1">
-          <Journey
-            from={journeyState.from}
-            to={journeyState.to}
-            exchangeFromTo={handleExChange}
-            showCitySelector={setShowCitySelector}
-          />
-          <DepartDate time={departDate} onClick={setIsDateSelectorVisible} />
-          <HighSpeed highSpeed={highSpeed} toggle={setHighSpeed} />
-          {/* <DepartDate time={departDate} {...departDateCbs} />
+      <Header title="火车票" />
+      <div styleName="form1">
+        <Journey
+          from={journeyState.from}
+          to={journeyState.to}
+          exchangeFromTo={handleExChange}
+          showCitySelector={setShowCitySelector}
+        />
+        <DepartDate time={departDate} onClick={setIsDateSelectorVisible} />
+        <HighSpeed highSpeed={highSpeed} toggle={setHighSpeed} />
+        {/* <DepartDate time={departDate} {...departDateCbs} />
         <HighSpeed highSpeed={highSpeed} {...highSpeedCbs} /> */}
-          <Submit handleClick={goQuery} />
-        </div>
+        <Submit handleClick={goQuery} />
       </div>
 
       {/* <CitySelector

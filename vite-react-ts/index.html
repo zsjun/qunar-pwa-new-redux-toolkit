@@ -7,10 +7,27 @@
       name="viewport"
       content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
     />
+    <!-- 禁止横屏 -->
+    <meta name="screen-orientation" content="portrait" />
     <title>Vite App</title>
+    <script>
+      var ms = /Html5Plus\/.+\s\(.*(Immersed\/(\d+\.?\d*).*)\)/gi.exec(
+        navigator.userAgent
+      );
+      // 当前环境为沉浸式状态栏模式
+      if (ms && ms.length >= 3) {
+        var immersed = parseFloat(ms[2]) || 0;
+        // 获取状态栏的高度 }
+        var t = document.getElementById('root');
+        if (t) {
+          t.style.paddingTop = immersed + 'px';
+        }
+      }
+    </script>
   </head>
   <body>
-    <div id="root"></div>
+    <!-- ios 下 viewport-fit=cover 设置为全屏幕，然后使用安全区域 -->
+    <div id="root" class="root-wrap"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
