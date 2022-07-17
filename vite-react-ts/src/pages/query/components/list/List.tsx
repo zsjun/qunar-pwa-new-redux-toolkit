@@ -1,18 +1,19 @@
 import React, { memo, useMemo } from 'react';
 // import URI from 'urijs';
 import PropTypes from 'prop-types';
+import { ListItemProps } from '../../types';
 import './index.module.scss';
-interface ListItemProps {
-  dTime: string;
-  aTime: string;
-  dStation: string;
-  aStation: string;
-  trainNumber: string;
-  date: string;
-  time: string;
-  priceMsg: string;
-  dayAfter: string;
-}
+// interface ListItemProps {
+//   dTime: string;
+//   aTime: string;
+//   dStation: string;
+//   aStation: string;
+//   trainNumber: string;
+//   date: string;
+//   time: string;
+//   priceMsg: string;
+//   dayAfter: string;
+// }
 const ListItem = memo(function ListItem(props: ListItemProps) {
   const {
     dTime,
