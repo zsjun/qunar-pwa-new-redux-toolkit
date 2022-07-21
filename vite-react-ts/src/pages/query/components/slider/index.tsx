@@ -6,7 +6,7 @@ import React, {
   useEffect,
   MouseEvent,
 } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 // import leftPad from 'left-pad';
 import useWinSize from '@/utils/hooks/useWinSize';
 import './index.module.scss';
@@ -199,12 +199,12 @@ const Slider = memo(function Slider(props: SliderProps) {
   );
 });
 
-Slider.propTypes = {
-  title: PropTypes.string.isRequired,
-  currentStartHours: PropTypes.number.isRequired,
-  currentEndHours: PropTypes.number.isRequired,
-  onStartChanged: PropTypes.func.isRequired,
-  onEndChanged: PropTypes.func.isRequired,
-};
+// Slider.propTypes = {
+//   title: PropTypes.string.isRequired,
+//   currentStartHours: PropTypes.number.isRequired,
+//   currentEndHours: PropTypes.number.isRequired,
+//   onStartChanged: PropTypes.func.isRequired,
+//   onEndChanged: PropTypes.func.isRequired,
+// };
 
 export default Slider;

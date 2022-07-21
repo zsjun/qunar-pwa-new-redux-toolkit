@@ -298,7 +298,7 @@ const BottomModal = memo(function BottomModal(props: BottomModalProps) {
 
 interface BottomProps {
   toggleOrderType: (value: any) => void;
-  toggleHighSpeed: (value: any) => void;
+  // toggleHighSpeed: (value: any) => void;
   toggleOnlyTickets: (value: any) => void;
   toggleIsFiltersVisible: () => void;
   highSpeed: boolean;
@@ -326,11 +326,13 @@ interface BottomProps {
   setArriveTimeStart: (value: any) => void;
   setArriveTimeEnd: (value: any) => void;
   setTicketTypes: (value: any) => void;
+  setTrainTypes: (value: any) => void;
+  setDepartStations: (value: any) => void;
+  setArriveStations: (value: any) => void;
 }
 export default function Bottom(props: BottomProps) {
   const {
     toggleOrderType,
-    toggleHighSpeed,
     toggleOnlyTickets,
     toggleIsFiltersVisible,
     highSpeed,
@@ -391,7 +393,7 @@ export default function Bottom(props: BottomProps) {
         </span>
         <span
           className={classnames('item', { 'item-on': highSpeed })}
-          onClick={toggleHighSpeed}
+          onClick={console.log}
         >
           <i className="icon">{highSpeed ? '\uf43f' : '\uf43e'}</i>
           只看高铁动车

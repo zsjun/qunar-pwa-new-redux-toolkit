@@ -4,3 +4,5 @@ node_modules/
 package.json
 postcss.config.js
 prettier.config.js
+plopConfig/
+plop-templates/

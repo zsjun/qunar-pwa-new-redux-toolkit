@@ -1,0 +1,11 @@
+import React, { memo,FC } from 'react'; 
+import Box from '@/common/box/index'; 
+import './index.module.scss';
+interface {{upperCase compName}}Props {
+  data:any;
+  isLoading:boolean;
+}
+const {{upperCase compName}}:FC<{{upperCase compName}}Props> = (props) => { 
+  const { data } = props; 
+return <Box data={data} isLoading={false} styleName='{{compName}}-box'><div>1</div></Box>; }
+export default memo({{upperCase compName}});
